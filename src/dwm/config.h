@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance          title       tags mask     isfloating   monitor */
 	{ "copyq",        NULL,         NULL,       0,            1,           -1 },
-	{ "firefox",      NULL,         NULL,       1 << 1        0,           -1 },
+	{ "firefox",      NULL,         NULL,       1 << 1,       0,           -1 },
 	{ "burpsuite",    "burp",       NULL,       1 << 2,       0,           -1 },
 };
 
@@ -42,6 +42,8 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -85,6 +87,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
