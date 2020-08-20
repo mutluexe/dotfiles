@@ -8,5 +8,7 @@ xset -b
 
 xset r rate 240 60
 
+wmname LG3D
+exec slstatus &
 exec copyq &
 exec dwm
