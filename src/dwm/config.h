@@ -11,15 +11,23 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "hack:size=12" };
 static const char dmenufont[]       = "hack:size=12";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+
+static const char norm_fg[] = "#a9c4dd";
+static const char norm_bg[] = "#0A1113";
+static const char norm_border[] = "#76899a";
+
+static const char sel_fg[] = "#a9c4dd";
+static const char sel_bg[] = "#63579B";
+static const char sel_border[] = "#a9c4dd";
+
+static const char urg_fg[] = "#a9c4dd";
+static const char urg_bg[] = "#944161";
+static const char urg_border[] = "#944161";
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+    /*               fg           bg         border                         */
+    [SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
+    [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
 };
 
 /* tagging */
@@ -33,7 +41,7 @@ static const Rule rules[] = {
 	/* class      instance          title       tags mask     isfloating   monitor */
 	{ "copyq",        NULL,         NULL,       0,            1,           -1 },
 	{ "firefox",      NULL,         NULL,       1 << 1,       0,           -1 },
-	{ "burpsuite",    "burp",       NULL,       1 << 2,       0,           -1 },
+	{ "burp-StartBurp",    NULL,       NULL,       1 << 2,       0,           -1 },
 };
 
 /* layout(s) */
@@ -63,7 +71,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
 /* custom commands */
 static const char *clipmenu[]  = { "copyq","toggle", NULL };

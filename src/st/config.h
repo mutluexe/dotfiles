@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Droid Sans Mono:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 2;
+static int borderpx = 3;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -65,7 +65,7 @@ static unsigned int blinktimeout = 800;
 /*
  * thickness of underline and bar cursors
  */
-static unsigned int cursorthickness = 2;
+static unsigned int cursorthickness = 1;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "xterm";
 
 /*
  * spaces per tab
@@ -93,44 +93,41 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+const char *colorname[] = {
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+  /* 8 normal colors */
+  [0] = "#0A1113", /* black   */
+  [1] = "#944161", /* red     */
+  [2] = "#63579B", /* green   */
+  [3] = "#4653B4", /* yellow  */
+  [4] = "#9058AE", /* blue    */
+  [5] = "#C551A9", /* magenta */
+  [6] = "#976CD3", /* cyan    */
+  [7] = "#a9c4dd", /* white   */
 
-	[255] = 0,
+  /* 8 bright colors */
+  [8]  = "#76899a",  /* black   */
+  [9]  = "#944161",  /* red     */
+  [10] = "#63579B", /* green   */
+  [11] = "#4653B4", /* yellow  */
+  [12] = "#9058AE", /* blue    */
+  [13] = "#C551A9", /* magenta */
+  [14] = "#976CD3", /* cyan    */
+  [15] = "#a9c4dd", /* white   */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+  /* special colors */
+  [256] = "#0A1113", /* background */
+  [257] = "#a9c4dd", /* foreground */
+  [258] = "#a9c4dd",     /* cursor */
 };
 
+/* Default colors (colorname index)
+ * foreground, background, cursor */
+ unsigned int defaultbg = 0;
+ unsigned int defaultfg = 257;
+ unsigned int defaultcs = 258;
+ unsigned int defaultrcs= 258;
 
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
