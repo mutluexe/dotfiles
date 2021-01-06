@@ -14,6 +14,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # nice little background script
 exec $HOME/.config/scripts/back4.sh 0.05 $HOME/.config/gif/beautycity.gif &
 
+# for transparency
+exec xcompmgr &
+
 exec slstatus &
 exec copyq &
 exec dwm
