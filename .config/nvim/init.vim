@@ -1,14 +1,14 @@
 syntax on
 filetype plugin indent on
-colorscheme minimalist
 
 call plug#begin()
-
     " Code 
     Plug 'vim-syntastic/syntastic'
     Plug 'preservim/nerdcommenter'
     Plug 'chiel92/vim-autoformat'
+    "Plug 'jpalardy/vim-slime', {'branch': 'main'}
     " Appearance
+    Plug 'dylanaraps/wal.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     " Completion
@@ -17,26 +17,35 @@ call plug#begin()
     Plug 'shime/vim-livedown'
 
 call plug#end()
+colorscheme wal
 
 inoremap jk <ESC>
+nmap <Leader>y "+yE
+vmap <Leader>y "+yE
+map  <Leader>, :1,$s/\s\+/\r/g<Return>
 
 set hlsearch incsearch ignorecase smartcase 
 set number
 set nobackup nowritebackup noswapfile nocompatible
+set guicursor=n-v-c-sm:hor25,i-ci-ve:ver25,r-cr-o:ver20
 
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " number of spaces to use for autoindent
-set expandtab       " tabs are space
+set expandtab
 set autoindent
 set copyindent      " copy indent from the previous line
 " }}} Spaces & Tabs
 
+"=============================== Slime Configuration ===============================
+let g:slime_target = "neovim"
+let g:slime_paste_file = "/tmp/.slime_paste"
+
 "=============================== Airline Configuration ===============================
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='minimalist'
+let g:airline_theme='wal'
 
 "=============================== Syntastic Configuration ===============================
 
