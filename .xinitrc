@@ -8,7 +8,7 @@ xset -b
 
 xset r rate 240 60
 
-wmname LG3D
+exec $HOME/.config/scripts/back4.sh 0.05 $HOME/.config/gif/beautycity.gif &
 exec slstatus &
 exec copyq &
 exec dwm
