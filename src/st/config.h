@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Droid Sans Mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Menlo for Powerline:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 3;
 
 /*
