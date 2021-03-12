@@ -11,8 +11,11 @@ xset r rate 240 60
 # For J*va shits
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# nice little background script
-exec $HOME/.config/scripts/back4.sh 0.05 $HOME/.config/gif/beautycity.gif &
+# nice little background here (unfortunately i needed to stop this)
+# exec xwinwrap -g 1920x1080 -ov -ni -s -nf -- gifview -w WID /home/mutluexe/.config/gif/beautycity_scaled.gif -a &
+
+# background
+~/.fehbg &
 
 # for transparency
 exec xcompmgr &

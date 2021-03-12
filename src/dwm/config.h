@@ -12,17 +12,13 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "hack:size=12" };
 static const char dmenufont[]       = "hack:size=12";
 
-static const char norm_fg[] = "#a9c4dd";
-static const char norm_bg[] = "#0A1113";
-static const char norm_border[] = "#76899a";
+static const char norm_fg[] = "#7fe6f0";
+static const char norm_bg[] = "#06071B";
+static const char norm_border[] = "#58a1a8";
 
-static const char sel_fg[] = "#a9c4dd";
-static const char sel_bg[] = "#63579B";
-static const char sel_border[] = "#a9c4dd";
-
-static const char urg_fg[] = "#a9c4dd";
-static const char urg_bg[] = "#944161";
-static const char urg_border[] = "#944161";
+static const char sel_fg[] = "#7fe6f0";
+static const char sel_bg[] = "#195A9C";
+static const char sel_border[] = "#7fe6f0";
 
 static const char *colors[][3]      = {
     /*               fg           bg         border                         */
