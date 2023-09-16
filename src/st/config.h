@@ -94,39 +94,40 @@ char *termname = "xterm";
 unsigned int tabspaces = 8;
 
 const char *colorname[] = {
+	/* 8 normal colors */
+"#3b4252", /* black   */
+"#bf616a", /* red     */
+"#a3be8c", /* green   */
+"#ebcb8b", /* yellow  */
+"#81a1c1", /* blue    */
+"#b48ead", /* magenta */
+"#88c0d0", /* cyan    */
+"#e5e9f0", /* white   */
 
-  /* 8 normal colors */
-  [0] = "#06071B", /* black   */
-  [1] = "#443BB3", /* red     */
-  [2] = "#195A9C", /* green   */
-  [3] = "#2064D7", /* yellow  */
-  [4] = "#BA3ED2", /* blue    */
-  [5] = "#3EABCB", /* magenta */
-  [6] = "#12A2E3", /* cyan    */
-  [7] = "#7fe6f0", /* white   */
+ 	/* 8 bright colors */
+"#4c566a", /* black   */
+"#bf616a", /* red     */
+"#a3be8c", /* green   */
+"#ebcb8b", /* yellow  */
+"#81a1c1", /* blue    */
+"#b48ead", /* magenta */
+"#8fbcbb", /* cyan    */
+"#eceff4", /* white   */
 
-  /* 8 bright colors */
-  [8]  = "#58a1a8",  /* black   */
-  [9]  = "#443BB3",  /* red     */
-  [10] = "#195A9C", /* green   */
-  [11] = "#2064D7", /* yellow  */
-  [12] = "#BA3ED2", /* blue    */
-  [13] = "#3EABCB", /* magenta */
-  [14] = "#12A2E3", /* cyan    */
-  [15] = "#7fe6f0", /* white   */
+ 	[255] = 0,
 
-  /* special colors */
-  [256] = "#06071B", /* background */
-  [257] = "#7fe6f0", /* foreground */
-  [258] = "#7fe6f0",     /* cursor */
+ 	/* more colors can be added after 255 to use with DefaultXX */
+"#d8dee9", /* default foreground colour */
+"#2e3440", /* default background colour */
+
 };
 
 /* Default colors (colorname index)
  * foreground, background, cursor */
- unsigned int defaultbg = 0;
- unsigned int defaultfg = 257;
- unsigned int defaultcs = 258;
- unsigned int defaultrcs= 258;
+ unsigned int defaultbg = 257;
+ unsigned int defaultfg = 256;
+ unsigned int defaultcs = 256;
+ static unsigned int defaultrcs= 257;
 
 /*
  * Default shape of cursor
